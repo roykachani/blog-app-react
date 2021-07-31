@@ -27,18 +27,17 @@ export const useFetch = (endpoint = 'blog') => {
 };
 
 export const usePost = () => {
-	const [response, setResponse] = useState({});
+	const [response, setResponse] = useState();
 	const [fetching, setfetching] = useState(false);
 
-	const postData = async (endpoint, object) => {
+	const postData = async (endpoint, object, config) => {
+		//tengo que ver como enviar headers 20min midudev
 		try {
 			setfetching(true);
+			console.log(config);
 			//data
-			const { data, headers, status, statusText } = await API.post(
-				`${endpoint}`,
-				object
-			);
-			setResponse({ ...response }, data, headers, status, statusText);
+			const { data } = await API.post(`${endpoint}`, object, config);
+			setResponse(data);
 			setfetching(false);
 		} catch (error) {
 			console.log(error, 'ocurrio un error en la autentificacion');

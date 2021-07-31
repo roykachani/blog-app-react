@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
@@ -12,11 +13,15 @@ const Login = () => {
 	const [post, response, fetching] = usePost();
 
 	const submitLogin = (data) => {
-		console.log(data);
 		post('auth/login', data);
-		const { headers } = response;
-		console.log(headers);
 	};
+
+	//aca guardo en localstorage con la info de response.
+	if (response) {
+		console.log(response);
+		const { message, token } = response;
+		window.localStorage.setItem('loggedBlogApp', JSON.stringify(token));
+	}
 
 	return (
 		<Card>
@@ -47,4 +52,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default memo(Login);

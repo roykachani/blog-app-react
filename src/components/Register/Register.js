@@ -15,8 +15,8 @@ const Register = () => {
 	const submitForm = (data) => {
 		console.log(data);
 		post('auth', data);
-		// console.log(response);
 	};
+	if (response) console.log(response, fetching);
 
 	return (
 		<Card>
