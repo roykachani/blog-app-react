@@ -1,26 +1,41 @@
-import { memo } from 'react';
+import { memo, useContext, useState, useEffect } from 'react';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useHistory } from 'react-router-dom';
+
 import { schema } from './schema';
 import { Card, Button, Form } from 'react-bootstrap';
 import { usePost } from '../../hooks/useFetch';
+import { AuthContext } from '../../contex/Auth';
+import { getAuthStorage } from '../../utils/auth';
 
 const Login = () => {
+	const { auth, authenticate } = useContext(AuthContext);
+
+	const history = useHistory();
+
+	useEffect(() => {
+		if (!!getAuthStorage()) history.push('/create');
+	}, [auth, history]);
+
 	const { register, handleSubmit } = useForm({
 		resolver: yupResolver(schema),
 	});
 
+	//post
 	const [post, response, fetching] = usePost();
 
 	const submitLogin = (data) => {
 		post('auth/login', data);
 	};
 
-	//aca guardo en localstorage con la info de response.
+	//comparto en el context
 	if (response) {
 		console.log(response);
-		const { message, token } = response;
-		window.localStorage.setItem('loggedBlogApp', JSON.stringify(token));
+
+		authenticate(response);
+		history.push('/create');
 	}
 
 	return (

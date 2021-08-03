@@ -1,18 +1,30 @@
+import { useEffect, useState } from 'react';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from './schema';
 import { Card, Button, Form } from 'react-bootstrap';
+
 import { usePost } from '../../hooks/useFetch';
-import { useEffect, useState } from 'react';
+import { schema } from './schema';
+import { getAuthStorage } from '../../utils/auth';
 
 const BlogForm = () => {
 	const [token, setToken] = useState('');
+
+	const [post, response, fetching] = usePost();
 
 	const { register, handleSubmit } = useForm({
 		resolver: yupResolver(schema),
 	});
 
-	const [post, response, fetching] = usePost();
+	useEffect(() => {
+		const loggedUserJson = getAuthStorage();
+		if (loggedUserJson) {
+			setToken(loggedUserJson);
+		}
+	}, []);
+
+	console.log(token);
 
 	const submitPost = (data) => {
 		const config = {
@@ -26,14 +38,6 @@ const BlogForm = () => {
 	if (response) {
 		console.log(response);
 	}
-	useEffect(() => {
-		const loggedUserJson = window.localStorage.getItem('loggedBlogApp');
-		if (loggedUserJson) {
-			const newToken = JSON.parse(loggedUserJson);
-			setToken(newToken);
-		}
-	}, []);
-	console.log(token);
 
 	return (
 		<Card>
