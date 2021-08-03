@@ -1,8 +1,11 @@
 import { createContext, useState, useEffect } from 'react';
+
 import {
 	setAuthStorage,
 	removeAuthStorage,
 	getAuthStorage,
+	setRespStorage,
+	getRespStorage,
 } from '../utils/auth';
 
 //contexto
@@ -18,23 +21,33 @@ const { Provider } = AuthContext;
 
 export const AuthProvider = ({ children }) => {
 	const [auth, setAuth] = useState(null); //guardo el token
+	const [dataResponse, setDataResponse] = useState(null); //guardo response
 
 	useEffect(() => {
 		const authenticatedData = getAuthStorage();
-		if (authenticatedData) setAuth(authenticatedData);
+		const userData = getRespStorage();
+		if (authenticatedData && userData) {
+			setAuth(authenticatedData);
+			setDataResponse(userData);
+		}
 	}, []);
 
 	const authenticate = (response) => {
-		setAuth(response);
+		setDataResponse(response);
+		setRespStorage(response);
 		const { token } = response;
+		setAuth(token);
 		setAuthStorage(token);
 	};
-	console.log(auth);
 
 	const exit = () => {
 		setAuth(null);
 		removeAuthStorage();
 	};
 
-	return <Provider value={{ auth, authenticate, exit }}>{children}</Provider>;
+	return (
+		<Provider value={{ auth, dataResponse, authenticate, exit }}>
+			{children}
+		</Provider>
+	);
 };

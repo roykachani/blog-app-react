@@ -31,10 +31,9 @@ export const usePost = () => {
 	const [fetching, setfetching] = useState(false);
 
 	const postData = async (endpoint, object, config) => {
-		//tengo que ver como enviar headers 20min midudev
 		try {
 			setfetching(true);
-			console.log(config);
+
 			//data
 			const { data } = await API.post(`${endpoint}`, object, config);
 			setResponse(data);

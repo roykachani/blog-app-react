@@ -1,8 +1,9 @@
+import Navstyle from '../../Nav/Navbar';
+
 const Header = () => {
 	return (
 		<>
-			<h1>ReBloG!</h1>
-			<h3>Header</h3>
+			<Navstyle />
 		</>
 	);
 };

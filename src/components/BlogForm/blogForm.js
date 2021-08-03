@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Card, Button, Form } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 import { usePost } from '../../hooks/useFetch';
 import { schema } from './schema';
@@ -12,6 +13,8 @@ const BlogForm = () => {
 	const [token, setToken] = useState('');
 
 	const [post, response, fetching] = usePost();
+
+	const history = useHistory();
 
 	const { register, handleSubmit } = useForm({
 		resolver: yupResolver(schema),
@@ -24,8 +27,6 @@ const BlogForm = () => {
 		}
 	}, []);
 
-	console.log(token);
-
 	const submitPost = (data) => {
 		const config = {
 			headers: {
@@ -36,7 +37,7 @@ const BlogForm = () => {
 	};
 
 	if (response) {
-		console.log(response);
+		history.push('/');
 	}
 
 	return (

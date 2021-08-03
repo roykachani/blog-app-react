@@ -14,7 +14,7 @@ const Home = () => {
 	const [data, loading] = useFetch();
 	const { result: posts } = data;
 
-	// const { auth } = useContext(AuthContext);
+	const { auth } = useContext(AuthContext);
 
 	// const renderLog = () => {
 	// 	if (!!auth) return <Logout />;
@@ -29,18 +29,21 @@ const Home = () => {
 
 	return (
 		<Container fluid>
-			<Row md={3}>
-				<Header />
+			<Row className="p-0">
+				<Col className="p-0">
+					<Header />
+				</Col>
 			</Row>
 			<Row>
-				<Col md={2}>
+				{/* <Col md={2}>
 					<StrictMode>
 						<Logout />
-						{/* {renderLog()} */}
 					</StrictMode>
-				</Col>
+				</Col> */}
 				<Col className="section">
-					<h3>Registrate y comparte tu Post!</h3>
+					{!auth && (
+						<h3 className="text-center">Registrate y comparte tu Post!</h3>
+					)}
 					<Main posts={posts} loading={loading} />
 				</Col>
 			</Row>
