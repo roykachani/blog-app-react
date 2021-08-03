@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -6,13 +6,26 @@ import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import Main from '../../components/common/Main';
 import { useFetch } from '../../hooks/useFetch';
+import Logout from '../../components/Logout/Logout';
+import { AuthContext } from '../../contex/Auth';
 import './style.css';
 
 const Home = () => {
 	const [data, loading] = useFetch();
 	const { result: posts } = data;
 
-	// console.log(posts);
+	// const { auth } = useContext(AuthContext);
+
+	// const renderLog = () => {
+	// 	if (!!auth) return <Logout />;
+
+	// 	return (
+	// 		<>
+	// 			<Link to="/register">Registrate</Link>
+	// 			<Link to="/login">login</Link>
+	// 		</>
+	// 	);
+	// };
 
 	return (
 		<Container fluid>
@@ -22,8 +35,8 @@ const Home = () => {
 			<Row>
 				<Col md={2}>
 					<StrictMode>
-						<Link to="/register">Registrate</Link>
-						<Link to="/login">Login</Link>
+						<Logout />
+						{/* {renderLog()} */}
 					</StrictMode>
 				</Col>
 				<Col className="section">

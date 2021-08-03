@@ -31,10 +31,10 @@ export const AuthProvider = ({ children }) => {
 	};
 	console.log(auth);
 
-	const logout = () => {
+	const exit = () => {
 		setAuth(null);
 		removeAuthStorage();
 	};
 
-	return <Provider value={{ auth, authenticate, logout }}>{children}</Provider>;
+	return <Provider value={{ auth, authenticate, exit }}>{children}</Provider>;
 };

@@ -1,6 +1,9 @@
 import { memo } from 'react';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useHistory } from 'react-router-dom';
+
 import { schema } from './schema';
 import { usePost } from '../../hooks/useFetch';
 import { Card, Button, Form } from 'react-bootstrap';
@@ -10,13 +13,14 @@ const Register = () => {
 		resolver: yupResolver(schema),
 	});
 
+	const history = useHistory();
 	const [post, response, fetching] = usePost();
 
 	const submitForm = (data) => {
 		console.log(data);
 		post('auth', data);
 	};
-	if (response) console.log(response, fetching);
+	if (response) history.push('/login');
 
 	return (
 		<Card>
