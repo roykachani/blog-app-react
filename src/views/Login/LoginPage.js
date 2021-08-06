@@ -1,16 +1,15 @@
-import BlogForm from '../../components/BlogForm/blogForm';
+import Login from '../../components/Login';
 import { Col, Container, Row } from 'react-bootstrap';
-
-const CreateBlog = () => {
+const LoginPage = () => {
 	return (
 		<Container className="mt-5" style={{ height: '80vh' }}>
 			<Row className="justify-content-center">
-				<Col md={8}>
-					<BlogForm />
+				<Col md={4} className="section">
+					<Login />
 				</Col>
 			</Row>
 		</Container>
 	);
 };
 
-export default CreateBlog;
+export default LoginPage;

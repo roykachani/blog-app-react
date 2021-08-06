@@ -19,7 +19,7 @@ const Logout = () => {
 		const { user } = dataResponse;
 		return (
 			<Navbar.Text>
-				Signed in as: <a href="#user">{user}</a>
+				Bienvenido: <a href="/userProfile">{user}</a>
 				<Button bg="dark" variant="dark" className="m-2" onClick={handlerLog}>
 					Logout
 				</Button>

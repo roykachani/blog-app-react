@@ -2,14 +2,14 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = () => {
 	return (
-		<Container>
+		<Container className="text-center">
 			<Row>
 				<Col>
-					<p>Github</p>
+					<a href="https://github.com/roykachani">Github</a>
 				</Col>
 				<Col>Hecho por Roy Kachani </Col>
 				<Col>
-					<p>linkedin</p>
+					<a href="https://www.linkedin.com/in/roykachani">Linkedin</a>
 				</Col>
 			</Row>
 		</Container>

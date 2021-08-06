@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -67,4 +67,4 @@ const Login = () => {
 	);
 };
 
-export default memo(Login);
+export default Login;

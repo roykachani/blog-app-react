@@ -5,7 +5,7 @@ const NavStyle = () => {
 	return (
 		<Navbar bg="dark" variant="dark">
 			<Container>
-				<Navbar.Brand href="#home">
+				<Navbar.Brand href="/">
 					<h1>ReBloG!</h1>
 				</Navbar.Brand>
 				<Nav className="me-auto">
@@ -13,7 +13,6 @@ const NavStyle = () => {
 					<Nav.Link href="/create">Crea tu Blog</Nav.Link>
 					<Nav.Link href="/pricing">Pricing</Nav.Link>
 				</Nav>
-				<Navbar.Toggle />
 				<Navbar.Collapse className="justify-content-end">
 					<Logout />
 				</Navbar.Collapse>

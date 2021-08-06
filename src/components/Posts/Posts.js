@@ -8,7 +8,7 @@ const Posts = ({ posts }) => {
 		<Row className="justify-content-center">
 			<Col md={10} sm={12}>
 				{posts?.length > 0 &&
-					posts.map((post) => <Post {...post} key={post._id} />)}
+					posts.map((post) => <Post {...post} key={post._id} />).reverse()}
 			</Col>
 		</Row>
 	);
