@@ -7,10 +7,10 @@ import { AuthContext } from '../../contex/Auth';
 import './style.css';
 
 const Home = () => {
-	const [data, loading] = useFetch();
-	const { result: posts } = data;
-
 	const { auth } = useContext(AuthContext);
+
+	const [data, loading] = useFetch('blog');
+	const { result: posts } = data;
 
 	return (
 		<Container fluid className="mt-2 mb-2">

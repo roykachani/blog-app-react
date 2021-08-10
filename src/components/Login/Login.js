@@ -11,13 +11,13 @@ import { AuthContext } from '../../contex/Auth';
 import { getAuthStorage } from '../../utils/auth';
 
 const Login = () => {
-	const { auth, authenticate } = useContext(AuthContext);
+	const { authenticate } = useContext(AuthContext);
 
 	const history = useHistory();
 
 	useEffect(() => {
 		if (!!getAuthStorage()) history.push('/create');
-	}, [auth, history]);
+	}, [history]);
 
 	const { register, handleSubmit } = useForm({
 		resolver: yupResolver(schema),

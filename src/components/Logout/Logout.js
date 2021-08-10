@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 
 import { Button, Navbar } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 
 import { AuthContext } from '../../contex/Auth';
+import ButtonLink from '../ButtonLink/ButtonLink';
 
 const Logout = () => {
 	const { dataResponse, auth, exit } = useContext(AuthContext);
@@ -16,10 +17,11 @@ const Logout = () => {
 	};
 
 	if (!!auth && !!dataResponse) {
-		const { user } = dataResponse;
+		console.log(dataResponse);
 		return (
 			<Navbar.Text>
-				Bienvenido: <a href="/userProfile">{user}</a>
+				Bienvenido: <ButtonLink {...dataResponse} />
+				{/* <Link to={`/users/Profile/${id}`}>{user}</Link> */}
 				<Button bg="dark" variant="dark" className="m-2" onClick={handlerLog}>
 					Logout
 				</Button>
@@ -28,18 +30,18 @@ const Logout = () => {
 	}
 	return (
 		<>
-			<Button bg="dark" variant="dark" style={{ margin: '0 2px' }}>
-				<Link to="/register" style={{ color: 'white' }}>
+			<Link to="/register" style={{ color: 'white' }}>
+				<Button bg="dark" variant="dark" style={{ margin: '0 2px' }}>
 					Registrate
-				</Link>
-			</Button>
-			<Button bg="dark" variant="dark" style={{ margin: '0 2px' }}>
-				<Link to="/login" style={{ color: 'white' }}>
+				</Button>
+			</Link>
+			<Link to="/login" style={{ color: 'white' }}>
+				<Button bg="dark" variant="dark" style={{ margin: '0 2px' }}>
 					login
-				</Link>
-			</Button>
+				</Button>
+			</Link>
 		</>
 	);
 };
 
-export default Logout;
+export default memo(Logout);

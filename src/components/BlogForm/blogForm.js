@@ -10,6 +10,7 @@ import { schema } from './schema';
 import { getAuthStorage } from '../../utils/auth';
 
 const BlogForm = () => {
+	console.log('blogform');
 	const [token, setToken] = useState('');
 
 	const [post, response, fetching] = usePost();

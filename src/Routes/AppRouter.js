@@ -13,6 +13,7 @@ import Home from '../views/Home/Home';
 import Header from '../components/common/Header';
 import LoginPage from '../views/Login/LoginPage';
 import Footer from '../components/common/Footer';
+import User from '../views/User/User';
 
 const AppRouter = () => {
 	return (
@@ -23,6 +24,7 @@ const AppRouter = () => {
 				<Route path="/login" component={LoginPage} />
 				<Route path="/register" component={Regist} />
 				<PrivateRoute path="/create" component={CreateBlog} />
+				<PrivateRoute path="/users/profile/:id" component={User} />
 				<Redirect to="/login" />
 			</Switch>
 			<Footer />

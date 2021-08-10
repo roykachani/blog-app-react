@@ -34,9 +34,9 @@ export const AuthProvider = ({ children }) => {
 
 	const authenticate = (response) => {
 		setDataResponse(response);
-		setRespStorage(response);
 		const { token } = response;
 		setAuth(token);
+		setRespStorage(response);
 		setAuthStorage(token);
 	};
 

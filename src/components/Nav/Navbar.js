@@ -3,7 +3,7 @@ import Logout from '../Logout/Logout';
 
 const NavStyle = () => {
 	return (
-		<Navbar bg="dark" variant="dark">
+		<Navbar bg="dark" className="sticky-top" variant="dark">
 			<Container>
 				<Navbar.Brand href="/">
 					<h1>ReBloG!</h1>
