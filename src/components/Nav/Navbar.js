@@ -11,7 +11,7 @@ const NavStyle = () => {
 				<Nav className="me-auto">
 					<Nav.Link href="/">Home</Nav.Link>
 					<Nav.Link href="/create">Crea tu Blog</Nav.Link>
-					<Nav.Link href="/pricing">Pricing</Nav.Link>
+					<Nav.Link href="/pricing"></Nav.Link>
 				</Nav>
 				<Navbar.Collapse className="justify-content-end">
 					<Logout />
