@@ -14,6 +14,7 @@ import Header from '../components/common/Header';
 import LoginPage from '../views/Login/LoginPage';
 import Footer from '../components/common/Footer';
 import User from '../views/User/User';
+import Blog from '../views/blog/Blog';
 
 const AppRouter = () => {
 	return (
@@ -25,6 +26,7 @@ const AppRouter = () => {
 				<Route path="/register" component={Regist} />
 				<PrivateRoute path="/create" component={CreateBlog} />
 				<PrivateRoute path="/users/profile/:id" component={User} />
+				<PrivateRoute path="/blog/:id" component={Blog} />
 				<Redirect to="/login" />
 			</Switch>
 			<Footer />

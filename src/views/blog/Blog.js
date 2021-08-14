@@ -1,15 +1,13 @@
-import { Container, Row, Col, Link } from 'react-bootstrap';
+import BlogData from '../../components/BlogData';
 
-const BlogListUser = ({ title, description, users, category }) => {
+const Blog = ({ match }) => {
+	const id = match.params.id;
+	// console.log(id);
 	return (
-		<Container fluid>
-			<Row md={3}></Row>
-			<Row>
-				<Col md={2}></Col>
-				<Col className="section"></Col>
-			</Row>
-		</Container>
+		<>
+			<BlogData id={id} />
+		</>
 	);
 };
 
-export default BlogListUser;
+export default Blog;

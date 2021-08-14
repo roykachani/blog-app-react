@@ -31,7 +31,7 @@ const UserProfile = (data) => {
 						<Card.Body>
 							<ListGroup variant="flush" className="">
 								{blogsData.map((blog) => (
-									<ListGroup.Item>
+									<ListGroup.Item key={blog._id}>
 										{blog.title}
 										<Button
 											style={{ width: '20px', height: '20px' }}

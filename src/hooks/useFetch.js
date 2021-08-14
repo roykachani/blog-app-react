@@ -20,6 +20,7 @@ export const useFetch = (endpoint, config) => {
 			setError(true);
 		}
 	};
+	console.log(data);
 
 	useEffect(() => {
 		console.log('efect');

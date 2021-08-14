@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 
 import ButtonLink from '../ButtonLink';
@@ -18,7 +17,7 @@ const Post = ({
 			<hr />
 			<span className="mb-0">{category}</span>
 			<ButtonLink id={id} user={user} />
-			<Link to={`/blog/${_id}`}>ver Blog</Link>
+			<ButtonLink _id={_id} />
 		</Alert>
 	);
 };
