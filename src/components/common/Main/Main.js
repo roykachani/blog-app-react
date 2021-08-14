@@ -1,4 +1,4 @@
-import Posts from '../../Posts/Posts';
+import PostsList from '../../PostsList/PostsList';
 
 const Main = ({ posts, loading }) => {
 	if (loading) return 'cargando';
@@ -7,7 +7,7 @@ const Main = ({ posts, loading }) => {
 		<>
 			<h3 className="text-center mt-3 mb-3">Ultimos Posteos...</h3>
 
-			<Posts posts={posts} />
+			<PostsList posts={posts} />
 		</>
 	);
 };

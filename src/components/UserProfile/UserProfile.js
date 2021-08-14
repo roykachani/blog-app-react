@@ -1,12 +1,11 @@
 import { Button, Col, Container, Row, Card, ListGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 const UserProfile = (data) => {
-	const { blogsData, userId, result } = data;
+	const { blogsData, result } = data;
 	console.log(blogsData, result);
 
 	return (
-		<Container className="pt-3" style={{ width: '100%', height: '85vh' }}>
+		<Container className="pt-3">
 			<h3>Perfil del usuario</h3>
 			<Row md={4}>
 				<Col>

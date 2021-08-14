@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = () => {
@@ -16,4 +17,4 @@ const Footer = () => {
 	);
 };
 
-export default Footer;
+export default memo(Footer);

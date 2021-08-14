@@ -1,12 +1,17 @@
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import Logout from '../Logout/Logout';
+import { Navbar, Container, Nav, Image } from 'react-bootstrap';
+import Logout from '../Logout';
+import logo from '../../logo box.png';
 
 const NavStyle = () => {
 	return (
 		<Navbar bg="dark" className="sticky-top" variant="dark">
 			<Container>
 				<Navbar.Brand href="/">
-					<h1>ReBloG!</h1>
+					<Image
+						src={logo}
+						alt="logo"
+						style={{ width: '120px', height: '50px' }}
+					/>
 				</Navbar.Brand>
 				<Nav className="me-auto">
 					<Nav.Link href="/">Home</Nav.Link>

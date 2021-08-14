@@ -1,7 +1,7 @@
 import { Row, Col } from 'react-bootstrap';
-import Post from '../Post/Post';
+import Post from '../Post';
 
-const Posts = ({ posts }) => {
+const PostsList = ({ posts }) => {
 	// console.log(posts);
 
 	return (
@@ -14,4 +14,4 @@ const Posts = ({ posts }) => {
 	);
 };
 
-export default Posts;
+export default PostsList;

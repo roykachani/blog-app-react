@@ -1,17 +1,25 @@
-import { Row, Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Alert } from 'react-bootstrap';
 
-const Post = ({ title, description, users, category, _id }) => {
-	//console.log(title);
+import ButtonLink from '../ButtonLink';
+
+const Post = ({
+	author: user,
+	title,
+	description,
+	users: id,
+	category,
+	_id,
+}) => {
 	return (
-		<Row md={12} sm={12} className="d-block">
-			<Alert variant="success">
-				<Alert.Heading>{title}</Alert.Heading>
-				<p>{description}</p>
-				<hr />
-				<p className="mb-0">{(users, category)}</p>
-				{/* <a>{_id}</a> */}
-			</Alert>
-		</Row>
+		<Alert variant="warning">
+			<Alert.Heading>{title}</Alert.Heading>
+			<p>{description}</p>
+			<hr />
+			<span className="mb-0">{category}</span>
+			<ButtonLink id={id} user={user} />
+			<Link to={`/blog/${_id}`}>ver Blog</Link>
+		</Alert>
 	);
 };
 
