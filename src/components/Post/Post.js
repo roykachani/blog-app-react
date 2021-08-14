@@ -1,4 +1,4 @@
-import { Alert } from 'react-bootstrap';
+import { Alert, Row, Col } from 'react-bootstrap';
 
 import ButtonLink from '../ButtonLink';
 
@@ -10,14 +10,27 @@ const Post = ({
 	category,
 	_id,
 }) => {
+	console.log(title.length);
 	return (
 		<Alert variant="warning">
-			<Alert.Heading>{title}</Alert.Heading>
-			<p>{description}</p>
+			<Alert.Heading>
+				{title.length >= 50 ? `${title.substr(0, 49)}...` : title}
+			</Alert.Heading>
+			<p>
+				{description.length >= 50
+					? `${description.substr(0, 49)}`
+					: description}
+			</p>
 			<hr />
-			<span className="mb-0">{category}</span>
-			<ButtonLink id={id} user={user} />
-			<ButtonLink _id={_id} />
+			<Row className="d-flex justify-content-between">
+				<Col className="d-flex justify-content-start">
+					<span className="pr-2">{category}</span>
+					<ButtonLink id={id} user={user} />
+				</Col>
+				<Col className="d-flex justify-content-end">
+					<ButtonLink _id={_id} />
+				</Col>
+			</Row>
 		</Alert>
 	);
 };
