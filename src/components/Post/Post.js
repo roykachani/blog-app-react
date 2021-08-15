@@ -10,7 +10,6 @@ const Post = ({
 	category,
 	_id,
 }) => {
-	console.log(title.length);
 	return (
 		<Alert variant="warning">
 			<Alert.Heading>

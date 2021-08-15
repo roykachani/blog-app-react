@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Card, Button, Form } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
 import { usePost } from '../../hooks/useFetch';
 import { schema } from './schema';
 import { getAuthStorage } from '../../utils/auth';
+import Spinner from '../Spinner';
 
 const BlogForm = () => {
 	console.log('blogform');
@@ -40,6 +41,21 @@ const BlogForm = () => {
 	if (response) {
 		history.push('/');
 	}
+
+	if (fetching)
+		return (
+			<Container
+				fluid
+				className="mt-2 mb-2 d-flex justify-content-center"
+				style={{ minHeight: '80vh' }}
+			>
+				<Row>
+					<Col className="d-flex align-items-center">
+						<Spinner />
+					</Col>
+				</Row>
+			</Container>
+		);
 
 	return (
 		<Card>
